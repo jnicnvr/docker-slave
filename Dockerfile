@@ -1,4 +1,4 @@
-FROM jenkins/jnlp-agent:latest
+FROM jenkins/jnlp-slave:latest
 
 USER root
 
