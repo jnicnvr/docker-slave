@@ -1,16 +1,8 @@
-FROM alpine:latest
-
-USER root
-
-RUN apt-get update && \
-    apt-get install -y apt-transport-https \
-                       ca-certificates \
-                       curl \
-                       gnupg-agent \
-                       software-properties-common && \
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
-    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && \
-    apt-get update && \
-    apt-get install -y docker-ce-cli
-
-USER jenkins
+FROM node:latest
+RUN apt-get update && apt-get install -y default-jdk
+RUN npm install -g npm
+RUN npm install -g n
+RUN n stable
+RUN npm install -g pm2
+RUN mkdir -p /home/jenkins/agent
+WORKDIR /home/jenkins/agent
