@@ -15,8 +15,8 @@ RUN apt-get update && apt-get install -y docker-ce-cli
 
 
 # Add user and group for jenkins
-RUN groupadd -g 10000 jenkins
-RUN useradd -m -u 10000 -g 10000 jenkins
+RUN groupadd -g 1000 jenkins
+RUN useradd -m -u 1000 -g 1000 jenkins
 RUN echo "jenkins:jenkins" | chpasswd
 
 # Prepare container for ssh
